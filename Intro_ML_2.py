@@ -12,7 +12,7 @@ print(type(cali))
 #plt.imsho
 
 cal = pd.DataFrame( data = cali.data, columns = cali.feature_names)
-print(cal.describe(), cal.head(10), cal.info()) # head(50) shows the top 50
+print(cal.describe(), cal.head(10), cal.info()) # head(50) shows the top 50, info shows #data points and data type for each feature
 # cal.hist(bins = 50, figsize=(10,10))
 # plt.show()
 
