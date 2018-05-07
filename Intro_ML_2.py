@@ -46,7 +46,7 @@ print(corr_matrix['MedInc']>0.5)
 
 np.random.seed(0)
 indices = np.random.permutation(len(cal['MedInc']))
-cal_train = cal[indices[:-1000]]
+cal_train = cal['MedInc'][indices[:-1000]]
 # print(cal_train)
 
 
