@@ -6,6 +6,10 @@ from sklearn.linear_model import LinearRegression
 from sklearn.linear_model import LogisticRegression
 from sklearn.linear_model import SGDClassifier
 
+
+import seaborn as sns
+sns.set_style('whitegrid') # FYI the “sns.set_style(‘whitegrid’)” just sets us up to use a nice pre set plot scheme, provided by the seaborn library
+
 #PRESS SHIFT 2 TIMES TO SEARCH EVERYWHERE
 
 numbers = datasets.load_digits()
