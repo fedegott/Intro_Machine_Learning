@@ -6,6 +6,8 @@ from sklearn.linear_model import LinearRegression
 from sklearn.linear_model import LogisticRegression
 from sklearn.linear_model import SGDClassifier
 
+from sklearn.model_selection import cross_val_predict
+from sklearn.model_selection import cross_val_score
 
 import seaborn as sns
 sns.set_style('whitegrid') # FYI the “sns.set_style(‘whitegrid’)” just sets us up to use a nice pre set plot scheme, provided by the seaborn library
@@ -64,10 +66,12 @@ numbers_test_Y = numbers.target[-10:]
 # print(predict)
 # print(numbers_test_Y)
 #
-sgd = SGDClassifier(random_state=42)
-sgd.fit(numbers_train_X,numbers_train_Y)
-predict = sgd.predict(numbers_test_X)
-print(predict)
-print(numbers_test_Y)
+# sgd = SGDClassifier(random_state=42)
+# sgd.fit(numbers_train_X,numbers_train_Y)
+# predict = sgd.predict(numbers_test_X)
+# print(predict)
+# print(numbers_test_Y)
+
+
 
 # add crosvalidation
