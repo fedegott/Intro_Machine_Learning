@@ -40,9 +40,9 @@ print(cal.describe(), cal.head(10), cal.info()) # head(50) shows the top 50, inf
 # scatter_matrix(cal[attributes], figsize=(20,15))
 # plt.show()
 
-corr_matrix = cal.corr(method= 'pearson')
+corr_matrix = cal.corr(method = 'pearson')
 print(corr_matrix)
-print(corr_matrix['MedInc']>0.5)
+print(corr_matrix['MedInc']>0.5) #fancy indexing because use boolean to select data
 
 np.random.seed(0)
 indices = np.random.permutation(len(cal['MedInc']))
