@@ -47,31 +47,44 @@ numbers_test_X = numbers.data[-10:] # 10 instances
 numbers_test_Y = numbers.target[-10:]
 
 # print(numbers.data[-10::-1].shape, numbers.data[-10:].shape)
+predict=[]
 
-# knn = KNeighborsClassifier()
-# knn.fit(numbers_train_X,numbers_train_Y)
-# predict = knn.predict(numbers_test_X)
-# print(predict)
-# print(numbers_test_Y)
-#
+knn = KNeighborsClassifier()
+knn.fit(numbers_train_X,numbers_train_Y)
+predict_knn = knn.predict(numbers_test_X)
+predict.append(predict_knn)
+print(predict_knn)
+print(numbers_test_Y)
+
+
+
 # lin = LinearRegression()
 # lin.fit(numbers_train_X,numbers_train_Y)
 # predict = lin.predict(numbers_test_X)
 # print(predict)
 # print(numbers_test_Y )
-#
+# #
 # lor = LogisticRegression()
 # lor.fit(numbers_train_X,numbers_train_Y)
 # predict = lor.predict(numbers_test_X)
 # print(predict)
 # print(numbers_test_Y)
-#
+# #
 # sgd = SGDClassifier(random_state=42)
 # sgd.fit(numbers_train_X,numbers_train_Y)
 # predict = sgd.predict(numbers_test_X)
 # print(predict)
 # print(numbers_test_Y)
 
+for i in range(predict):
+    numbers_test_Y_string = str(numbers_test_Y).strip('[]')
+    plt.plot(numbers_test_Y_string.split(),predict[0], marker= 'o', linestyle = '', c = 'b'  ,alpha = 0.5)
+    # plt.ion()
+    plt.xlabel('data')
+    plt.ylabel('prediction')
+    plt.yticks(range(0,10))
+    plt.legend(handles = [])
+    plt.show()
 
 
 # add crosvalidation
