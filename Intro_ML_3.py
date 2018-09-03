@@ -48,6 +48,7 @@ numbers_test_Y = numbers.target[-10:]
 
 # print(numbers.data[-10::-1].shape, numbers.data[-10:].shape)
 predict=[]
+predict_name = []
 
 knn = KNeighborsClassifier()
 knn.fit(numbers_train_X,numbers_train_Y)
@@ -56,35 +57,50 @@ predict.append(predict_knn)
 print(predict_knn)
 print(numbers_test_Y)
 
+predict_name.append(str(predict_knn))
 
+lin = LinearRegression()
+lin.fit(numbers_train_X,numbers_train_Y)
+predict_LinR = lin.predict(numbers_test_X)
+predict.append(predict_LinR)
+print(predict)
+print(numbers_test_Y )
 
-# lin = LinearRegression()
-# lin.fit(numbers_train_X,numbers_train_Y)
-# predict = lin.predict(numbers_test_X)
-# print(predict)
-# print(numbers_test_Y )
 # #
-# lor = LogisticRegression()
-# lor.fit(numbers_train_X,numbers_train_Y)
-# predict = lor.predict(numbers_test_X)
-# print(predict)
-# print(numbers_test_Y)
+lor = LogisticRegression()
+lor.fit(numbers_train_X,numbers_train_Y)
+predict_logR = lor.predict(numbers_test_X)
+predict.append(predict_logR)
+print(predict)
+print(numbers_test_Y)
 # #
-# sgd = SGDClassifier(random_state=42)
-# sgd.fit(numbers_train_X,numbers_train_Y)
-# predict = sgd.predict(numbers_test_X)
-# print(predict)
-# print(numbers_test_Y)
+sgd = SGDClassifier(random_state=42)
+sgd.fit(numbers_train_X,numbers_train_Y)
+predict_SGDclass = sgd.predict(numbers_test_X)
+predict.append(predict_SGDclass)
+print(predict)
+print(numbers_test_Y)
 
-for i in range(predict):
-    numbers_test_Y_string = str(numbers_test_Y).strip('[]')
-    plt.plot(numbers_test_Y_string.split(),predict[0], marker= 'o', linestyle = '', c = 'b'  ,alpha = 0.5)
-    # plt.ion()
+# fig, ax1 = plt.subplots(nrow = 3,ncols = 1)
+# for i,_ in enumerate(predict):
+numbers_test_Y_string = str(numbers_test_Y).strip('[]')
+for i in range(4):
+
+    plt.subplot(4,1,i+1)
+    plt.plot(numbers_test_Y_string.split(),predict[i], marker= 'o', linestyle = '', c = 'b'  ,alpha = 0.5)
+
+    # plt.plot(numbers_test_Y_string.split(),predict[i], marker= 'o', linestyle = '', c = 'b'  ,alpha = 0.5)
+        # # plt.ion()
     plt.xlabel('data')
     plt.ylabel('prediction')
     plt.yticks(range(0,10))
-    plt.legend(handles = [])
-    plt.show()
+    plt.legend(handles = [], loc=1)
+plt.show()
+
+
+
+
+
 
 
 # add crosvalidation
